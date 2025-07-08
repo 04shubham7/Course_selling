@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const courseRouter = Router();
 
-courseRouter.post('/course/purchase',(req,res)=>{
+courseRouter.post('/purchase',(req,res)=>{
     //you would expect the user to pay you money here
     //and then you would give them access to the course
     res.json({
@@ -10,7 +10,7 @@ courseRouter.post('/course/purchase',(req,res)=>{
     });
 });
 
-courseRouter.get('/course/preview',(req,res)=>{
+courseRouter.get('/preview',(req,res)=>{
     res.json({
         message: 'all courses',
        
