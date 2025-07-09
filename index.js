@@ -1,4 +1,5 @@
 const express=require('express');
+const mongoose=require('mongoose');
 const {userRouter} = require('./routes/user');
 const {courseRouter} = require('./routes/course');
 const {adminRouter} = require('./routes/admin');
@@ -14,7 +15,13 @@ app.use('/api/v1/course',courseRouter);
 
 
 
-
-app.listen(3000,()=>{
-    console.log('Server is running on port 3000');
+async function main() {
+   //use dotenv to load environment variables 
+   await mongoose.connect("mongodb+srv://shubham1230101130:tBc3kiQrDkXdq7nk@cluster0.tbrbsay.mongodb.net/CourseSellingApp");
+    app.listen(3000,()=>{
+        console.log('Server is running on port 3000');
+    });
+}
+main().catch(err=>{
+    console.error('Error connecting to the database', err);
 });
